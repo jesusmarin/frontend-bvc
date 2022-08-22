@@ -1,0 +1,44 @@
+
+ <div>
+  <mat-grid-list cols="1" rowHeight="200px">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{platform.id}}
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>{{platform.id}}</button>
+            <button mat-menu-item>{{platform.name}}</button>
+          </mat-menu>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <h3>{{platform.name}}</h3>
+        <div>{{platform.decription}}</div>
+      </mat-card-content>
+    </mat-card>
+    </mat-grid-list>
+</div>
+<div>
+  <h2>Lista de Plataformas</h2>
+  <mat-grid-list cols="1" rowHeight="150px">
+    <mat-card class="dashboard-card">
+        <table mat-table style="width: 100%;" >
+          <tr>
+            <th mat-header-cell>N°</th>
+            <th mat-header-cell>Code</th>
+            <th mat-header-cell  mat-cell style="text-align: left">Description</th>
+          </tr>
+          <tr *ngFor="let item of platforms">
+            <td  mat-cell style="text-align: center">{{item.id}}</td>
+            <td  mat-cell style="text-align: center">{{item.name}}</td>
+            <td  mat-cell style="text-align: left">{{item.decription}}</td>
+            <td  mat-cell style="text-align: center"style="text-align: center" (click)="myPlatform(item)" style="cursor:point">click</td>
+          </tr>
+        </table>
+    </mat-card>
+  </mat-grid-list>
+</div>
+

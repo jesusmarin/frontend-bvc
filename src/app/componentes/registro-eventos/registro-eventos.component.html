@@ -1,0 +1,55 @@
+<div>
+  <mat-grid-list cols="2" rowHeight="150px">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{registroEvento.id}}
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>{{registroEvento.id}}</button>
+            <button mat-menu-item>{{registroEvento.amount}}</button>
+            <button mat-menu-item>{{registroEvento.cost}}</button>
+
+          </mat-menu>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <h3>fecha: {{registroEvento.date | date:'dd/MM/yyyy'}}</h3>
+        <div>cantidad: {{registroEvento.amount}}</div>
+        <div>Costo: {{registroEvento.cost | currency}}</div>
+        <div>{{registroEvento.event.idEvent}} - {{registroEvento.event.description}}</div>
+        <div>{{registroEvento.platform.name}} - {{registroEvento.platform.decription}}</div>
+      </mat-card-content>
+    </mat-card>
+    </mat-grid-list><br>
+
+<h2>Lista de Registro de Eventos</h2>
+<mat-grid-list cols="2" rowHeight="150px">
+  <mat-card class="dashboard-card">
+      <table mat-table style="width: 100%;" >
+        <tr>
+          <th mat-header-cell>Lista</th>
+        </tr>
+        <tr>
+          <th mat-header-cell>N°</th>
+          <th mat-header-cell>evento</th>
+          <th mat-header-cell>descripcion del evento</th>
+          <th mat-header-cell>cantidad</th>
+          <th mat-header-cell  mat-cell style="text-align: left">costo</th>
+          <th mat-header-cell  mat-cell style="text-align: center">select</th>
+        </tr>
+        <tr *ngFor="let item of registroEventos">
+
+          <td  mat-cell style="text-align: center">{{item.id}}</td>
+          <td  mat-cell style="text-align: center">{{item.event.idEvent}}</td>
+          <td  mat-cell style="text-align: center">{{item.event.description}}</td>
+          <td  mat-cell style="text-align: center">{{item.amount}}</td>
+          <td  mat-cell style="text-align: left">{{item.cost | currency}}</td>
+          <td  mat-cell style="text-align: center"style="text-align: center" (click)="myEventregister(item)" style="cursor:point">click</td>
+        </tr>
+      </table>
+  </mat-card>
+</mat-grid-list>
+</div>
