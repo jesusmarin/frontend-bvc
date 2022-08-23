@@ -10,7 +10,12 @@ import { Event } from '../../models/eventos.model';
 export class EventosComponent implements OnInit {
 
   eventos: Event[]=[];
-  evento: Event=this.eventos[0];
+  evento: Event={
+    id: 0,
+    idEvent: "",
+    description: "",
+    cost: 0
+  }  ;
 
   constructor(
     private service : EventoServiceService
@@ -19,7 +24,6 @@ export class EventosComponent implements OnInit {
   ngOnInit(): void {
     this.service.getListEventos()
     .subscribe(data => {
-      console.log(data)
       this.eventos=data;
       this.evento= this.eventos[0];
     });

@@ -1,17 +1,20 @@
-# FrontendBvc
+# Challenge desarrollo BVC
+desarrollo de para participación de un reto con BVC 
 
+# FrontendBVC
+url del micrositio en netlify 
+[link](https://superlative-naiad-fe0d93.netlify.app/)
+
+# BackendBVC
 Micro sitio del reto de desarrollo para BVC, que consume los microservicios desde 
 [heroku] (https://challenge-bvc.herokuapp.com/) 
 
 
 
-## Development server
+## Development server ne local host
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
