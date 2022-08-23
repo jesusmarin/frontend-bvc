@@ -10,9 +10,10 @@ export class RegistroEventoServiceService {
   registroEventos: EventRegister[]=[];
   constructor(private http: HttpClient) { }
 
-  // addRegistoEvento(registroEventos: EventRegister) : EventRegister{
-  //   return this.http.post>(this.url);
-  // }
+  create(registroNuevo: EventRegister) {
+     return this.http.post<EventRegister>(this.url, registroNuevo);
+  }
+
   getListEventRegister(){
     return this.http.get<EventRegister[]>(this.url);
   }

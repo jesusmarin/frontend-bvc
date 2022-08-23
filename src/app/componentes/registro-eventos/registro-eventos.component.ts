@@ -36,7 +36,6 @@ export class RegistroEventosComponent implements OnInit {
   ngOnInit(): void {
     this.service.getListEventRegister()
     .subscribe(data=>{
-      console.log(data)
       this.registroEventos = data;
       this.registroEvento = this.registroEventos[0];
     })

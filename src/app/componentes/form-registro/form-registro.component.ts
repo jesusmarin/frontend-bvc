@@ -1,10 +1,14 @@
 
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router"
 import { FormControl} from '@angular/forms';
 import { EventoServiceService } from 'src/app/services/evento-service.service';
 import { PlataformaServiceService } from 'src/app/services/plataforma-service.service';
 import { Event } from '../../models/eventos.model';
 import { Platform } from '../../models/plataforma.model';
+import { EventRegister } from '../../models/eventRegister.model';
+import { RegistroEventoServiceService } from 'src/app/services/registro-evento-service.service';
+
 
 @Component({
   selector: 'app-form-registro',
@@ -20,23 +24,34 @@ export class FormRegistroComponent implements OnInit {
     plataformas: Platform[] =[]
     selectPlataforma = new FormControl("");
     selectEvento = new FormControl("");
-    //  Platform = {
-    //   id: 0,
-    //   name: "",
-    //   decription: ""
-    // }
+    registroEvento :EventRegister={
+      id: -1,
+      date: 0,
+      amount: 0,
+      cost: 0,
+      platform: {
+        id: 0,
+        name: "",
+        decription: ""
+      },
+      event: {
+        id: 0,
+        idEvent: "",
+        description: "",
+        cost: 0
+      }
+    }
 
 
 
   constructor(
+    private router: Router,
     private serviceEvent : EventoServiceService,
-    private servicePlat:PlataformaServiceService
+    private servicePlat:PlataformaServiceService,
+    private serviceRegistro:RegistroEventoServiceService
   ) { }
 
-  OnChanges(){
-    console.log(this.selectEvento.value)
-    console.log(this.selectPlataforma.value)
-  }
+
 
   ngOnInit(): void {
     this.serviceEvent.getListEventos()
@@ -55,12 +70,24 @@ export class FormRegistroComponent implements OnInit {
   }
 
   onVerDatos(){
-    console.log("click")
-    console.log(this.cantidad.value)
-    console.log(this.eventos.filter(ev => ev.idEvent===this.selectEvento.value))
-    console.log(this.plataformas.filter(ev => ev.name===this.selectPlataforma.value))
 
+    let cant = this.cantidad.value;
+    let evSel = this.eventos.filter(ev => ev.idEvent===this.selectEvento.value)[0]
+     let plaSel = this.plataformas.filter(ev => ev.name===this.selectPlataforma.value)[0]
+
+     this.registroEvento.event=evSel;
+     this.registroEvento.platform=plaSel;
+     this.registroEvento.amount=cant;
+
+     console.log(this.registroEvento)
+     if(cant != null && cant > 0 && plaSel != null && evSel != null){
+       this.createNewEvent();
+     }
+    }
+
+  private createNewEvent(){
+    this.serviceRegistro.create(this.registroEvento).subscribe(data => {return data});
+    this.router.navigate(['/event-register'])
   }
-
 
 }
