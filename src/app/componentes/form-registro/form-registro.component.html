@@ -1,0 +1,46 @@
+<div>
+  <mat-grid-list cols="1" rowHeight="200px">
+    <mat-card class="dashboard-card">
+
+      <mat-card-header>
+        <mat-card-title>
+            Formulario de Registro de un Nuevo Evento
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div style="padding: 25px;">
+          
+            <h4>seleccione Eventos</h4>
+              <mat-form-field appearance="outline">
+                <mat-label>Eventos</mat-label>
+                <mat-select [formControl]="selectEvento">
+                  <mat-option *ngFor="let ev of eventos" [value]="ev.idEvent">
+                    {{ev.idEvent}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <h4>seleccione plataforma</h4>
+              <mat-form-field appearance="outline">
+                <mat-label>Plataforma</mat-label>
+                <mat-select [formControl]="selectPlataforma">
+                  <mat-option *ngFor="let ev of plataformas" [value]="ev.name">
+                    {{ev.name}}
+                  </mat-option>
+                </mat-select>
+
+              </mat-form-field>
+              <h4>Asigne Cantidad</h4>
+              <mat-form-field float-label="auto">
+                <mat-label>Cantidad</mat-label>
+                <input required type="number" matInput [formControl]="cantidad" placeholder="1">
+              </mat-form-field>
+              <div class="example-button-row">
+                <button (click)="onVerDatos()" mat-raised-button >Enviar registro</button>
+              </div>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+    </mat-grid-list>
+</div>
+<div>

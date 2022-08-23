@@ -26,7 +26,7 @@
 
   <mat-grid-list cols="1" rowHeight="150px">
     <mat-card class="dashboard-card">
-        <table mat-table style="width: 100%;" >
+        <table mat-table style="width: 60%;" >
           <tr>
             <th mat-header-cell>Lista</th>
           </tr>
@@ -35,14 +35,16 @@
             <th mat-header-cell>Code</th>
             <th mat-header-cell  mat-cell style="text-align: left">Description</th>
             <th mat-header-cell  mat-cell style="text-align: left">cost</th>
-            <th mat-header-cell  mat-cell style="text-align: left">select</th>
+            <th mat-header-cell  mat-cell style="text-align: center">select</th>
           </tr>
           <tr *ngFor="let item of eventos">
             <td  mat-cell style="text-align: center">{{item.id}}</td>
             <td  mat-cell style="text-align: center">{{item.idEvent}}</td>
             <td  mat-cell style="text-align: left">{{item.description}}</td>
             <td  mat-cell style="text-align: left">{{item.cost}}</td>
-            <td  mat-cell style="text-align: center"style="text-align: center" (click)="myEvent(item)" style="cursor:point">click</td>
+            <td  mat-cell style="text-align: center"style="text-align: center" (click)="myEvent(item)" >
+              <button> click</button>
+            </td>
           </tr>
         </table>
     </mat-card>

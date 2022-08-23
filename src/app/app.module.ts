@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import {ReactiveFormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PlatformaComponent } from './componentes/platforma/platforma.component';
 import { EventosComponent } from './componentes/eventos/eventos.component';
 import { RegistroEventosComponent } from './componentes/registro-eventos/registro-eventos.component';
+import { FormRegistroComponent } from './componentes/form-registro/form-registro.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { RegistroEventosComponent } from './componentes/registro-eventos/registr
     DashboardComponent,
     PlatformaComponent,
     EventosComponent,
-    RegistroEventosComponent
+    RegistroEventosComponent,
+    FormRegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,10 @@ import { RegistroEventosComponent } from './componentes/registro-eventos/registr
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    HttpClientModule
+    MatSelectModule,
+    MatInputModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

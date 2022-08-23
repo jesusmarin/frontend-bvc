@@ -1,6 +1,9 @@
 # FrontendBvc
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+Micro sitio del reto de desarrollo para BVC, que consume los microservicios desde 
+[heroku] (https://challenge-bvc.herokuapp.com/) 
+
+
 
 ## Development server
 

@@ -5,9 +5,12 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Recursos</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item  [routerLink]="['/platforms']">Platform</a>
-      <a mat-list-item [routerLink]="['/events']">Events</a>
-      <a mat-list-item [routerLink]="['/event-register']">Register Events</a>
+      <a mat-list-item  [routerLink]="['/platforms']">
+        <mat-icon>account_balance</mat-icon> Platform
+      </a>
+      <a mat-list-item [routerLink]="['/events']"><mat-icon>shop </mat-icon> Events</a>
+      <a mat-list-item [routerLink]="['/event-register']"><mat-icon>view_list </mat-icon> Register Events</a>
+      <a mat-list-item [routerLink]="['/form-register']"><mat-icon>input </mat-icon>&nbsp;  Nuevo Registro de Evento</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

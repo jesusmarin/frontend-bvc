@@ -36,18 +36,22 @@
           <th mat-header-cell>N°</th>
           <th mat-header-cell>evento</th>
           <th mat-header-cell>descripcion del evento</th>
-          <th mat-header-cell>cantidad</th>
-          <th mat-header-cell  mat-cell style="text-align: left">costo</th>
-          <th mat-header-cell  mat-cell style="text-align: center">select</th>
+          <th mat-header-cell>valor/unidad</th>
+          <th mat-header-cell>Cantidad</th>
+          <th mat-header-cell  mat-cell style="text-align: left">Costo Total</th>
+          <th mat-header-cell  mat-cell style="text-align: left">select</th>
         </tr>
         <tr *ngFor="let item of registroEventos">
 
           <td  mat-cell style="text-align: center">{{item.id}}</td>
           <td  mat-cell style="text-align: center">{{item.event.idEvent}}</td>
           <td  mat-cell style="text-align: center">{{item.event.description}}</td>
+          <td  mat-cell style="text-align: center">{{item.event.cost | currency}}</td>
           <td  mat-cell style="text-align: center">{{item.amount}}</td>
           <td  mat-cell style="text-align: left">{{item.cost | currency}}</td>
-          <td  mat-cell style="text-align: center"style="text-align: center" (click)="myEventregister(item)" style="cursor:point">click</td>
+          <td  mat-cell style="text-align: center"style="text-align: center" (click)="myEventregister(item)" style="cursor:point">
+           <button> click</button>
+          </td>
         </tr>
       </table>
   </mat-card>
