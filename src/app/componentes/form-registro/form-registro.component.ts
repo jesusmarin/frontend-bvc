@@ -4,10 +4,10 @@ import {Router} from "@angular/router"
 import { FormControl} from '@angular/forms';
 import { EventoServiceService } from 'src/app/services/evento-service.service';
 import { PlataformaServiceService } from 'src/app/services/plataforma-service.service';
+import { RegistroEventoServiceService } from 'src/app/services/registro-evento-service.service';
 import { Event } from '../../models/eventos.model';
 import { Platform } from '../../models/plataforma.model';
 import { EventRegister } from '../../models/eventRegister.model';
-import { RegistroEventoServiceService } from 'src/app/services/registro-evento-service.service';
 
 
 @Component({
@@ -73,7 +73,7 @@ export class FormRegistroComponent implements OnInit {
 
     let cant = this.cantidad.value;
     let evSel = this.eventos.filter(ev => ev.idEvent===this.selectEvento.value)[0]
-     let plaSel = this.plataformas.filter(ev => ev.name===this.selectPlataforma.value)[0]
+    let plaSel = this.plataformas.filter(ev => ev.name===this.selectPlataforma.value)[0]
 
      this.registroEvento.event=evSel;
      this.registroEvento.platform=plaSel;

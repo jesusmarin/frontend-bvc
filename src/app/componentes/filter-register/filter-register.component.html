@@ -1,0 +1,85 @@
+<div>
+  <mat-grid-list cols="1" rowHeight="200px">
+    <mat-card class="dashboard-card">
+
+      <mat-card-header>
+        <mat-card-title>
+            Formulario de Registro de un Nuevo Evento
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div style="padding: 25px;">
+          <!-- <input matInput [matDatepicker]="picker" [formControl]="fecha">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker> -->
+
+          <input type="date" id="start" name="trip-start"
+               (change)=" dateStartChange($event)"
+              min="2021-01-01" max="2022-12-31" style="margin-right: 25px;">
+
+          <input type="date" id="start" name="trip-start"
+                (change)=" dateEndChange($event)"
+              min="2021-01-01" max="2022-12-31" style="margin-right: 25px;">
+
+
+              <mat-form-field appearance="outline" style="margin-right: 25px;">
+                <mat-label>Eventos</mat-label>
+                <mat-select [formControl]="selectEvento">
+                  <mat-option *ngFor="let ev of eventos" [value]="ev.idEvent">
+                    {{ev.idEvent}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Plataforma</mat-label>
+                <mat-select [formControl]="selectPlataforma">
+                  <mat-option *ngFor="let pla of plataformas" [value]="pla.name">
+                    {{pla.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <div class="example-button-row">
+                <button (click)="consultarRegistros()" mat-raised-button >Consultar registros</button>
+              </div>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+    </mat-grid-list>
+</div>
+
+
+<div>
+  <h2>Lista de Registro de Eventos</h2>
+<mat-grid-list cols="2" rowHeight="150px">
+  <mat-card class="dashboard-card">
+      <table mat-table style="width: 100%;" >
+        <tr>
+          <th mat-header-cell>Lista</th>
+        </tr>
+        <tr>
+          <th mat-header-cell>N°</th>
+          <th mat-header-cell>evento</th>
+          <th mat-header-cell>descripcion del evento</th>
+          <th mat-header-cell>valor/unidad</th>
+          <th mat-header-cell>Cantidad</th>
+          <th mat-header-cell  mat-cell style="text-align: left">Costo Total</th>
+          
+        </tr>
+        <tr *ngFor="let item of registroEventos">
+
+          <td  mat-cell style="text-align: center">{{item.id}}</td>
+          <td  mat-cell style="text-align: center">{{item.event.idEvent}}</td>
+          <td  mat-cell style="text-align: center">{{item.event.description}}</td>
+          <td  mat-cell style="text-align: center">{{item.event.cost | currency}}</td>
+          <td  mat-cell style="text-align: center">{{item.amount}}</td>
+          <td  mat-cell style="text-align: left">{{item.cost | currency}}</td>
+
+        </tr>
+      </table>
+  </mat-card>
+</mat-grid-list>
+</div>

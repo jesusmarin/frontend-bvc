@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
  import { EventosComponent } from './componentes/eventos/eventos.component';
+import { FilterRegisterComponent } from './componentes/filter-register/filter-register.component';
 import { FormRegistroComponent } from './componentes/form-registro/form-registro.component';
  import { PlatformaComponent } from './componentes/platforma/platforma.component';
  import { RegistroEventosComponent } from './componentes/registro-eventos/registro-eventos.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
    path:'form-register',
    component: FormRegistroComponent
+   },
+  {
+   path:'filter-register',
+   component: FilterRegisterComponent
    },
    {
     path:'**',

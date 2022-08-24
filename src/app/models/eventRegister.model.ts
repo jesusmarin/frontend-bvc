@@ -10,3 +10,10 @@ export interface EventRegister{
   event:Event
 }
 
+export interface SearchDto{
+    start: number,
+    end: number,
+    event: Event | null,
+    platform:Platform | null
+}
+

@@ -23,6 +23,9 @@ import { RegistroEventosComponent } from './componentes/registro-eventos/registr
 import { FormRegistroComponent } from './componentes/form-registro/form-registro.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import { FilterRegisterComponent } from './componentes/filter-register/filter-register.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -33,7 +36,8 @@ import {MatInputModule} from '@angular/material/input';
     PlatformaComponent,
     EventosComponent,
     RegistroEventosComponent,
-    FormRegistroComponent
+    FormRegistroComponent,
+    FilterRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,8 @@ import {MatInputModule} from '@angular/material/input';
     MatMenuModule,
     MatSelectModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
