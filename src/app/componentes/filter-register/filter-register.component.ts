@@ -81,17 +81,15 @@ export class FilterRegisterComponent implements OnInit {
     }
 
     dateStartChange(data:any){
-      //console.log(new Date(data.target.value).getTime());
       this.start=new Date(data.target.value);
-      console.log(this.start.getTime())
       this.dto.start=this.start.getTime();
+      console.log(this.start.getTime())
 
   }
     dateEndChange(data:any){
-      // console.log(new Date(data.target.value).getTime());
       this.end=new Date(data.target.value);
-      console.log(this.end.getTime())
       this.dto.end=this.end.getTime();
+      console.log(this.end.getTime())
   }
 
   consultarRegistros(){
@@ -111,4 +109,9 @@ export class FilterRegisterComponent implements OnInit {
       }
     }
   }
+
+  reload(){
+    window.location.reload();
+  }
+
 }
